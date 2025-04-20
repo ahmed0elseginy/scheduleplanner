@@ -1,0 +1,22 @@
+<!-- src/main/resources/templates/login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+    <h2>Вход в систему</h2>
+    <form th:action="@{/auth/do-login}" method="post">
+        <label>Логин:</label><br>
+        <input type="text" name="login"><br><br>
+
+        <label>Пароль:</label><br>
+        <input type="password" name="password"><br><br>
+
+        <button type="submit">Войти</button>
+    </form>
+
+    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
+</body>
+</html>

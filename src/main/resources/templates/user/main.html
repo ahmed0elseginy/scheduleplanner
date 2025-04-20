@@ -1,0 +1,17 @@
+<!-- src/main/resources/templates/user_main.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <h2>Добро пожаловать, <span th:text="${user.fullName}">Имя</span></h2>
+
+    <ul>
+        <li><a th:href="@{/user/semester}">Пожелания к семестру</a></li>
+        <li><a th:href="@{/user/session}">Пожелания к сессии</a></li>
+        <li><a th:href="@{/auth/logout}">Выход</a></li>
+    </ul>
+</body>
+</html>

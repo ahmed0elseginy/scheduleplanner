@@ -1,0 +1,62 @@
+<!-- src/main/resources/templates/session_form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пожелания к сессии</title>
+</head>
+<body>
+<h2>Форма пожеланий к сессии</h2>
+
+<form th:action="@{/user/session}" th:object="${pref}" method="post">
+    <label>Название предмета:</label><br>
+    <input type="text" th:field="*{subjectName}"><br><br>
+
+    <label>Предпочтительные даты (через запятую):</label><br>
+    <input type="text" th:field="*{preferredDates}"><br><br>
+
+    <label>Нежелательные даты:</label><br>
+    <input type="text" th:field="*{unwantedDates}"><br><br>
+
+    <label>Пожелания около Нового года (true/false):</label><br>
+    <input type="text" th:field="*{aroundNewYear}"><br><br>
+
+    <label>Предпочтительные дни недели:</label><br>
+    <input type="text" th:field="*{preferredDays}"><br><br>
+
+    <label>Предпочтительные пары:</label><br>
+    <input type="text" th:field="*{preferredTimes}"><br><br>
+
+    <label>Тип нагрузки:</label><br>
+    <input type="text" th:field="*{loadType}"><br><br>
+
+    <label>Корпус:</label><br>
+    <input type="text" th:field="*{building}"><br><br>
+
+    <label>Аудитория:</label><br>
+    <input type="text" th:field="*{room}"><br><br>
+
+    <label>Тип доски:</label><br>
+    <input type="text" th:field="*{boardType}"><br><br>
+
+    <label>Компьютеры:</label><br>
+    <input type="text" th:field="*{computers}"><br><br>
+
+    <label>ОС:</label><br>
+    <input type="text" th:field="*{osType}"><br><br>
+
+    <label>Формат (очно/дистанционно):</label><br>
+    <input type="text" th:field="*{format}"><br><br>
+
+    <label>Важность:</label><br>
+    <input type="number" th:field="*{importance}"><br><br>
+
+    <label>Комментарии:</label><br>
+    <textarea th:field="*{comments}"></textarea><br><br>
+
+    <button type="submit">Сохранить</button>
+</form>
+
+<a th:href="@{/user/main}">Назад</a>
+</body>
+</html>

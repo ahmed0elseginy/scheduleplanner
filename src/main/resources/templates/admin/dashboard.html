@@ -1,0 +1,49 @@
+<!-- src/main/resources/templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора</title>
+</head>
+<body>
+<h2>Добро пожаловать, Администратор</h2>
+<a th:href="@{/admin/export}" style="display:inline-block; margin: 10px 0; background:#4CAF50; color:white; padding:10px 15px; text-decoration:none; border-radius:5px;">
+    📥 Скачать Excel
+    <a th:href="@{/admin/export-session}">📥 Скачать Excel (Сессия)</a>
+</a>
+<h3>Пожелания к семестру</h3>
+<table border="1">
+    <tr>
+        <th>Преподаватель</th>
+        <th>Предмет</th>
+        <th>Нагрузка</th>
+        <th>Комментарии</th>
+    </tr>
+    <tr th:each="pref : ${semesterPrefs}">
+        <td th:text="${pref.user.fullName}"></td>
+        <td th:text="${pref.subjectName}"></td>
+        <td th:text="${pref.loadType}"></td>
+        <td th:text="${pref.comments}"></td>
+    </tr>
+</table>
+
+<h3>Пожелания к сессии</h3>
+<table border="1">
+    <tr>
+        <th>Преподаватель</th>
+        <th>Предмет</th>
+        <th>Даты</th>
+        <th>Комментарии</th>
+    </tr>
+    <tr th:each="pref : ${sessionPrefs}">
+        <td th:text="${pref.user.fullName}"></td>
+        <td th:text="${pref.subjectName}"></td>
+        <td th:text="${#strings.arrayJoin(pref.preferredDates, ', ')}"></td>
+        <td th:text="${pref.comments}"></td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/auth/logout}">Выход</a>
+</body>
+</html>

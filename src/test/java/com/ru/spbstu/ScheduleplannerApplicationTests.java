@@ -1,0 +1,13 @@
+package com.ru.spbstu;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ScheduleplannerApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

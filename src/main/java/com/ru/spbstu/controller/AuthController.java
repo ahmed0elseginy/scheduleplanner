@@ -1,0 +1,44 @@
+package com.ru.spbstu.controller;
+
+//import com.ru.spbstu.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/auth")
+public class AuthController {
+
+//    @Autowired
+//    private AuthService authService;
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login"; // login.html في templates
+    }
+
+//    @PostMapping("/do-login")
+//    public String doLogin(@RequestParam String login,
+//                          @RequestParam String password,
+//                          Model model,
+//                          HttpSession session) {
+//        Optional<User> userOpt = authService.login(login, password);
+//        if (userOpt.isPresent()) {
+//            session.setAttribute("currentUser", userOpt.get());
+//            if ("ADMIN".equals(userOpt.get().getRole())) {
+//                return "redirect:/admin/dashboard";
+//            } else {
+//                return "redirect:/user/main";
+//            }
+//        }
+//        model.addAttribute("error", "Неверный логин или пароль");
+//        return "login";
+//    }
+
+//    @GetMapping("/logout")
+//    public String logout(HttpSession session) {
+//        session.invalidate();
+//        return "redirect:/auth/login";
+//    }
+}

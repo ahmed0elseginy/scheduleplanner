@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить дедлайны</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Редактирование дедлайнов</h2>
+
+<form th:action="@{/admin/deadlines}" method="post" th:object="${semesterDeadline}">
+    <label for="semester">Дедлайн для семестра</label>
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{type}" value="semester" />
+    <input type="text" th:field="*{message}" placeholder="Пример: До 30.06.2025" />
+    
+    <hr>
+
+    <div th:object="${sessionDeadline}">
+        <label for="session">Дедлайн для сессии</label>
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{type}" value="session" />
+        <input type="text" th:field="*{message}" placeholder="Пример: До 10.05.2025" />
+    </div>
+
+    <br>
+    <button type="submit">Сохранить</button>
+</form>
+
+<a th:href="@{/admin/dashboard}">← Назад на панель администратора</a>
+
+</body>
+</html>
